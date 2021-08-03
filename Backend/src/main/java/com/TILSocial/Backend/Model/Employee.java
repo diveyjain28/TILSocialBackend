@@ -1,8 +1,13 @@
 package com.TILSocial.Backend.Model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="employee_DB")
 public class Employee {
-	 private String name;
+	 @Id
 	 private int empId;
+	 private String name;
 	 private String dept;
 	 private String bio;
 	 private String team;
