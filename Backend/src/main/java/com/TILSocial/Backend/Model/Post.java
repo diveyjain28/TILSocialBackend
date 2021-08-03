@@ -1,7 +1,12 @@
 package com.TILSocial.Backend.Model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="post_DB")
 public class Post {
 	//empImgUrl,images,videos not used
+   @Id	
    private int id;
    private int empId;
    private String name;
