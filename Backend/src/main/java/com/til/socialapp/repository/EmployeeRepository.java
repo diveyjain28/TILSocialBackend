@@ -1,8 +1,8 @@
-package com.TILSocial.Backend.Repository;
+package com.til.socialapp.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.TILSocial.Backend.Model.Employee;
+import com.til.socialapp.model.Employee;
 
 public interface EmployeeRepository extends MongoRepository<Employee, Integer> {
 
