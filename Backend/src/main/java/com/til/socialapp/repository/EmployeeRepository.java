@@ -4,6 +4,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.til.socialapp.model.Employee;
 
-public interface EmployeeRepository extends MongoRepository<Employee, Integer> {
+public interface EmployeeRepository extends MongoRepository<Employee, Integer>
+{
 
+	
 }

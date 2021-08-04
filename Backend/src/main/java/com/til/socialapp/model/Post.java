@@ -1,5 +1,6 @@
 package com.til.socialapp.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Post {
 	//empImgUrl,images,videos not used
    @Id	
-   private int id;
+   private int id; //ObjectId
    private int empId;
    private String name;
    private int likesCount;
