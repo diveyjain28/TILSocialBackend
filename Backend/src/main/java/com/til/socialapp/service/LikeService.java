@@ -12,7 +12,7 @@ import com.til.socialapp.repository.PostRepository;
 public class LikeService 
 {
 	private LikeRepository like;
-	private PostRepository pr;
+	private PostRepository   pr;
 	
 	public LikeService(LikeRepository like,PostRepository pr) {
 		super();
