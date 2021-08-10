@@ -2,6 +2,8 @@ package com.til.socialapp.service;
 
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.til.socialapp.model.Like;
 import com.til.socialapp.model.Post;
@@ -11,14 +13,11 @@ import com.til.socialapp.repository.PostRepository;
 @Service
 public class LikeService 
 {
+	@Autowired
 	private LikeRepository like;
+	@Autowired
 	private PostRepository pr;
 	
-	public LikeService(LikeRepository like,PostRepository pr) {
-		super();
-		this.like = like;
-		this.pr=pr;
-	}
 	public void likePostService(Like l)
 	{
 		List<Post> temp1=pr.findAll();
@@ -35,7 +34,7 @@ public class LikeService
 		}
 		for(int i=0;i<temp1.size();i++)
 		{
-			if(temp1.get(i).getId().toString().equals( l.getPostId().toString() ) )
+			if(temp1.get(i).getPostId().toString().equals( l.getPostId().toString() ) )
 			{
 				if(flag==0)
 				{
@@ -55,7 +54,7 @@ public class LikeService
 			pr.save(p);
 		else
 		{
-			pr.deleteById(p.getId());
+			pr.deleteById(p.getPostId());
 			pr.save(p);
 		}
 	}

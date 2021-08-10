@@ -1,47 +1,50 @@
 package com.til.socialapp.model;
 
+
+import java.time.LocalDateTime;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "post_DB")
+@Document(collection = "post")
 public class Post {
 	// empImgUrl,images,videos not used
 	@Id
-	private ObjectId id;
+	private ObjectId postId;
 	private int empId;
 	private String name;
 	private int likesCount;
 	private int commentsCount;
 	private boolean hasLiked;
-	private String createdAt;
-	private String updatedAt;
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 	private String content;
 	private String[] tags;
 
 	// Constructor
-	public Post(ObjectId id,int empId, String name, int likesCount, int commentsCount, boolean hasLiked, String createdAt,
-			String updatedAt, String content, String[] tags) {
+	public Post(ObjectId postId,int empId, String name, int likesCount, int commentsCount, boolean hasLiked, LocalDateTime createdAt,
+			LocalDateTime updatedAt, String content, String[] tags) {
+		
 		super();
-		this.id=id;
+		this.postId=postId;
 		this.empId = empId;
 		this.name = name;
 		this.likesCount = likesCount;
 		this.commentsCount = commentsCount;
 		this.hasLiked = hasLiked;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
+		this.createdAt =  java.time.LocalDateTime.now();
+		this.updatedAt = java.time.LocalDateTime.now();
 		this.content = content;
 		this.tags = tags;
 	}
 
 	// Getters and Setters
-	public ObjectId getId() {
-		return id;
+	public ObjectId getPostId() {
+		return postId;
 	}
 
-	public void setId(ObjectId id) {
-		this.id = id;
+	public void setPostId(ObjectId postId) {
+		this.postId = postId;
 	}
 
 	public int getEmpId() {
@@ -84,19 +87,19 @@ public class Post {
 		this.hasLiked = hasLiked;
 	}
 
-	public String getCreatedAt() {
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public String getUpdatedAt() {
+	public LocalDateTime getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(String updatedAt) {
+	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
